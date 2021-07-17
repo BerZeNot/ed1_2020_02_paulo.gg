@@ -1,7 +1,12 @@
 #include <stdio.h>
 
 int main(){
+    float entrada, quadrado;
     printf("<< Calculo do Quadrado de n >>\n");
+    printf("Digite um número: ");
+    scanf("%f", &entrada);
+    quadrado = entrada*entrada;
+    printf("O valor de %.2f ao quadrado é %.2f\n", entrada, quadrado);
 }
 
 /*
