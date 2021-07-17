@@ -1,7 +1,15 @@
 #include <stdio.h>
 
 int main() {
+    int numero;
     printf("<< Sucessor e Antecessor >>\n");
+    printf("Digite um numero: ");
+    scanf("%d", &numero);
+    printf("\nAntecessor: %d", numero-1);
+    printf("\nNumero: %d" ,numero);
+    printf("\nSucessor: %d\n", numero+1);
+
+    return 0;
 }
 
 /*
