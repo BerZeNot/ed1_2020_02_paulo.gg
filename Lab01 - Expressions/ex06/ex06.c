@@ -1,7 +1,15 @@
 #include <stdio.h>
 
 int main() {
+    float premio = 780000, ganhador1, ganhador2, ganhador3;
     printf("<< Loteria >>\n");
+    ganhador1 = premio * 0.46;
+    ganhador2 = premio * 0.32;
+    ganhador3 = premio - (ganhador1 + ganhador2);
+    printf("Valor total do premio: %.0f\n", premio);
+    printf("Primeiro vencedor: %.0f\n", ganhador1);
+    printf("Segundo vencedor: %.0f\n", ganhador2);
+    printf("Terceiro vencedor: %.0f\n", ganhador3);
 }
 
 /*
