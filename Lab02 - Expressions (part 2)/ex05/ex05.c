@@ -1,7 +1,22 @@
 #include <stdio.h>
 
 int main() {
+    char bin[4];
     printf("== Conversor de numeros binarios ==\n");
+    printf("Digite o 1o bit: ");
+    scanf("%c", &bin[0]);
+    setbuf(stdin, NULL);
+    printf("Digite o 2o bit: ");
+    scanf("%c", &bin[1]);
+    setbuf(stdin, NULL);
+    printf("Digite o 3o bit: ");
+    scanf("%c", &bin[2]);
+    setbuf(stdin, NULL);
+    printf("Digite o 4o bit: ");
+    scanf("%c", &bin[3]);
+    printf("Binario: %c\n", bin);
+
+    // AINDA DEVE SER RESOLVIDO
 }
 
 /*

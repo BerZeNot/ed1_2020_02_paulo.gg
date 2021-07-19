@@ -1,7 +1,16 @@
 #include <stdio.h>
 
 int main() {
+    int A, B, aux;
     printf("== Troca do conteudo de variaveis ==\n");
+    printf("Entre com o valor de A: ");
+    scanf("%d", &A);
+    printf("Entre com o valor de B: ");
+    scanf("%d", &B);
+    aux = A;
+    A = B;
+    B = aux;
+    printf("Após a troca, o valor de A eh %d, e o valor de B eh %d\n", A, B);
 }
 
 /*
