@@ -12,7 +12,6 @@ int main() {
     printf("A or B: %d\n", (valorA || valorB));
     printf("A xor B: %d\n", (valorA || valorA) && !(valorA && valorB));
     printf("not A: %d\n", !valorA);
-
 }
 
 /*
