@@ -1,12 +1,25 @@
 #include <stdio.h>
 
 int main(){
+    int valores[6], cont=0, verifier;
     printf("<< Listando um vetor de numeros pares>>\n");
-
-
+    while(cont < 6){        
+        printf("Entre com o valor %d: ", cont+1);
+        scanf("%d", &verifier);
+        if(verifier % 2 == 0){
+            valores[cont] = verifier;
+            cont ++;
+        } else {
+            printf("Erro: Valor inválido\n");
+        }
+    }
+    printf("Os numeros pares digitados foram: ");
+    for(int i = 0; i < 6; i++){
+        printf("%d ", valores[i]);
+    }
+    printf("\n");
     return 0;
 }
-
 /*
 Crie um programa que lê 6 valores inteiros e em seguida mostra na tela os 
 valores lidos. Utilize loops e utilize vetores para armazenar os números.
