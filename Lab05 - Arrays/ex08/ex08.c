@@ -3,7 +3,7 @@
 
 int main(){
     int valores[5], soma=0; 
-    float media, dp, numerador=0;
+    double media, dp, numerador=0;
     printf("<< Media e desvio-padrao >>\n");
     for(int i = 0; i < 5; i++){
         printf("Digite o valor %d: ", i+1);
@@ -16,7 +16,7 @@ int main(){
     }
     dp = sqrt(numerador / 5);
 
-    printf("A media eh %.2f e o desvio-padrao eh %.2f\n", media, dp);
+    printf("A media eh %.lf e o desvio-padrao eh %.2lf\n", media, dp);
     return 0;
 }
 
