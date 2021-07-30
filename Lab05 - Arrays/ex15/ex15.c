@@ -2,35 +2,31 @@
 
 // Corrigir depois
 int main(){
-    int vetor[8], noRepeat[8], cont=0;
+    int valoresIn[8], valoresOut[8], cont=0, posVetOut=0;
     printf("<< Valores iguais >>\n");
-    for(int i=0; i<8; i++){
-        printf("Entre com o numero %i: ", i+1);
-        scanf("%d", &vetor[i]);
+    for(int i=0; i < 8; i++){
+        printf("Entre com o número %d: ", i+1);
+        scanf("%d", &valoresIn[i]);
     }
 
-    for (int i = 0; i < 8; i++){
-        if(i==0){
-            noRepeat[i] = vetor[i];
-            cont++;
-        } else {
-            for(int i = 0; i < cont; i ++){
-                if(vetor[i] != noRepeat[i]){
-                    continue;
-                } else {
-                    noRepeat[i+1] = vetor[i];
-                    cont++;
-                    break;
-                }  
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            if(valoresIn[i] == valoresIn[j]){
+                cont++;
             }
         }
+        if(cont>1){
+            valoresOut[posVetOut] = valoresIn[i];
+            cont = 0;
+            posVetOut++;
+        }
+        cont = 0;
     }
-
     printf("Valores repetidos: ");
-    for(int i = 0; i < cont; i++){
-        printf("%d -", noRepeat[i]);
+    for (int i = 0; i < posVetOut; i++){
+        printf("%d ", valoresOut[i]);
     }
-    
+    printf("\n");
     return 0;
 }
 
