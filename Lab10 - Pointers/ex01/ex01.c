@@ -2,7 +2,11 @@
 
 int main(){
     printf("<< Pointers >>\n");
-
+    int val[5] = {2,4,5,8,10};
+    unsigned long int end5 = &val[2];
+    printf("\nDigite um valor para substituir %d: ", val[2]);
+    scanf("%u", end5);
+    printf("Novo valor de val[2]: %u\n", val[2]);
     return 0;
 }
 
