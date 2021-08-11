@@ -1,8 +1,111 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct alunos{
+    char nome[50];
+    char matricula[20];
+    float nota1;
+    float nota2;
+    float nota3;
+    float media;
+    int faltas;
+};
+
+void cadastro(struct alunos *alunos){
+    for (int i=0; i < 3; i++){
+        printf("\nEntre com os dados do %dº aluno: \n",i+1);
+        printf("Matricula: ");
+        setbuf(stdin, NULL);
+        gets(alunos[i].matricula);
+        printf("Nome: ");
+        setbuf(stdin, NULL);
+        gets(alunos[i].nome);
+        printf("Nota da prova 1: ");
+        scanf("%f", &alunos[i].nota1);
+        printf("Nota da prova 2: ");
+        scanf("%f", &alunos[i].nota2);
+        printf("Nota da prova 3: ");
+        scanf("%f", &alunos[i].nota3);
+        printf("Numero de faltas: ");
+        scanf("%d", &alunos[i].faltas);
+        alunos[i].media = (alunos[i].nota1 + alunos[i].nota2 + alunos[i].nota3) / 3;
+    }
+    
+};
+
+void maiorNotaProva1(struct alunos *alunos){
+    float maiorNota;
+    int pos;
+    for(int i=0; i<3; i++){
+        if(i==0){
+            maiorNota = alunos[i].nota1;
+            pos = i;
+        } else if(alunos[i].nota1 > maiorNota) {
+            maiorNota = alunos[i].nota1;
+            pos = i;
+        }
+    }
+    printf("\nAluno com maior nota na prova 1 foi %s com %.1f pontos.\n", alunos[pos].nome, alunos[pos].nota1);
+};
+
+void maiorMediaGeral(struct alunos *alunos){
+    float maiorMedia;
+    int pos;
+    for(int i=0; i<3; i++){
+        if(i==0){
+            maiorMedia = alunos[i].media;
+            pos = i;
+        } else if(alunos[i].media > maiorMedia) {
+            maiorMedia = alunos[i].media;
+            pos = i;
+        }
+    }
+    printf("Aluno com maior media geral foi %s com %.1f pontos.\n", alunos[pos].nome, alunos[pos].media);
+};
+
+void menorMediaGeral(struct alunos *alunos){
+    float menorMedia;
+    int pos;
+    for(int i=0; i<3; i++){
+        if(i==0){
+            menorMedia = alunos[i].media;
+            pos = i;
+        } else if(alunos[i].media < menorMedia) {
+            menorMedia = alunos[i].media;
+            pos = i;
+        }
+    }
+    printf("Aluno com menor media geral foi %s com %.1f pontos.\n", alunos[pos].nome, alunos[pos].media);
+};
+
+void sutuacaoAlunos(struct alunos *alunos){
+    printf("\nSituação dos alunos:\n");
+    for(int i=0; i<3; i++){
+        float frequencia = 0;
+        float totAulas = 72.0;
+        frequencia = ((totAulas - alunos[i].faltas)*100.0)/totAulas;
+        
+        if(alunos[i].media >=60 && frequencia >= 75.0){
+            printf("%d - %s. Aprovado.\n", i+1, alunos[i].nome);
+        } else if(frequencia < 75.0){
+            printf("%d - %s. Reprovado por falta.\n", i+1, alunos[i].nome);
+        } else if(alunos[i].media < 60){
+            printf("%d - %s. Reprovado por nota.\n", i+1, alunos[i].nome);
+        }
+
+
+    }
+};
 
 int main(){
-    printf("<<  >>\n");
-
+    printf("<< Cadastro de alunos >>\n");
+    struct alunos alunos[3];
+    cadastro(alunos);
+    maiorNotaProva1(alunos);
+    maiorMediaGeral(alunos);
+    menorMediaGeral(alunos);
+    sutuacaoAlunos(alunos);
     return 0;
 }
 
