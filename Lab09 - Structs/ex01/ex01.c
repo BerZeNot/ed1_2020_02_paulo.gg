@@ -1,8 +1,26 @@
 #include <stdio.h>
 
-int main(){
-    printf("<<  >>\n");
+struct telefone{
+    short ddd;
+    int numero;
+};
 
+
+int main(){
+    printf("<< Cadastro de telefone >>\n");
+    struct telefone tels[3];
+    for(int i=0; i<3; i++){
+        printf("Digite o DDD: ");
+        scanf("%d", &tels[i].ddd);
+        printf("Digite o telefone: ");
+        scanf("%d", &tels[i].numero);
+    }
+
+    printf("Telefones cadastrados: \n");
+    for(int i=0; i<3; i++){
+        printf("%d %d\n", tels[i].ddd, tels[i].numero);
+    }
+    
     return 0;
 }
 
