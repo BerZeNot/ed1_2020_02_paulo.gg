@@ -1,8 +1,54 @@
 #include <stdio.h>
 
-int main(){
-    printf("<<  >>\n");
+struct eletrodomestico{
+  char nome[15];
+  float potencial;
+  float tempoAtivo_dia;
+};
 
+void readData(struct eletrodomestico *eletrodoms){
+  for(int i=0; i<5; i++){
+    printf("\nInforme os dados do %dº eletrodomestico: \n", i+1);
+    setbuf(stdin, NULL);
+    printf("Nome: ");
+    gets(eletrodoms[i].nome);
+    printf("Potencia: ");
+    scanf("%f", &eletrodoms[i].potencial);
+    printf("Tempo ativo por dia: ");
+    scanf("%f", &eletrodoms[i].tempoAtivo_dia);
+  }
+}
+
+float calculateConsumption(struct eletrodomestico *eletrodoms, float *daysUsing){
+  float consumption=0;
+  for(int i=0; i<5; i++){
+    consumption += (eletrodoms[i].potencial * eletrodoms[i].tempoAtivo_dia);
+  }
+  return consumption*(*daysUsing);
+}
+
+int main(){
+    printf("<< Controle de Consumo de Energia >>\n");
+    struct eletrodomestico eletrodoms[5];
+    float totalConsumption, daysUsing;
+    readData(&eletrodoms);
+    printf("\nInforme um valor de tempo (em dia): ");
+    scanf("%f", &daysUsing);
+    totalConsumption = calculateConsumption(&eletrodoms, &daysUsing);
+    printf("Consumo total: %.0f KW\n", totalConsumption);
+    printf("Consumo relativo:\n");
+    for(int i=0; i<5; i++){
+      float relativeConsumption=0;
+      relativeConsumption = ((eletrodoms[i].potencial*eletrodoms[i].tempoAtivo_dia*daysUsing)/totalConsumption)*100;
+      printf("%s %.1f%%\n", eletrodoms[i].nome, relativeConsumption);
+    }
+    
+  // Consumo relativo: 
+  // Geladeira 38.6%
+  // Ar Condicionado 24.1%
+  // Chuveiro 9.0%
+  // Radio 1.2%
+  // Computador 27.1%
     return 0;
 }
 
