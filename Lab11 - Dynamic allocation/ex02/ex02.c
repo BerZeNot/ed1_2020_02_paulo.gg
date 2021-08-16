@@ -4,6 +4,19 @@
 int main() {
     printf("<< Guarda inteiros >>\n");
     // Insira o seu código aqui.
+    int *numeros, n=5, i;
+    numeros = (int *)malloc(n*sizeof(int));
+
+    for(i = 0; i < n; i++){
+        printf("Digite o número(%d): ", i+1);
+        scanf("%d", &numeros[i]);
+    }
+
+    for(i = 0; i < n; i++){
+        printf("\nO número(%d) eh: %d", i+1, numeros[i]);
+    }
+    printf("\n");
+    return 0;
 }
 
 /*
