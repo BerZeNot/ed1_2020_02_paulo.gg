@@ -1,8 +1,30 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o valor de n para aproximar o numero neperiano: ");
+int calculaFatorial(int numero){
+    int numFatorial=numero;
+    if(numero==0){
+        return 1;
+    }
+    for(int i=numero-1; i > 0; i-- ){
+        numFatorial = numFatorial*i;
+    }
+    return numFatorial;
+}
 
+double neperiano(int *n){
+    double neper=1.0;
+    for(int i=1; i<=*n; i++){
+        neper = neper + (1.0/calculaFatorial(*n));
+    }
+
+    return neper;
+}
+
+int main(){
+    int n;
+    printf("Digite o valor de n para aproximar o numero neperiano: ");
+    scanf("%d", &n);
+    printf("O valor do numero neperiano eh: %lf\n", neperiano(&n));
     return 0;
 }
 

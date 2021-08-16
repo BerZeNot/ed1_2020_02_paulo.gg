@@ -1,9 +1,21 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o valor de x: ");
-    printf("Digite o valor de n: ");
+int elevado(int *x, int *n){
+    int potencia=*x;
+    for(int i=(*n)-1; i>0; i--){
+        potencia *= *x;
+    }
+    return potencia;
+}
 
+int main(){
+    int x, n;
+    printf("Digite o valor de x: ");
+    scanf("%d", &x);
+    printf("Digite o valor de n: ");
+    scanf("%d", &n);
+
+    printf("O valor de %d elevado a %d eh %d\n", x, n, elevado(&x,&n));
     return 0;
 }
 
