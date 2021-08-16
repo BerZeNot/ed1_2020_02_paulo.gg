@@ -1,9 +1,63 @@
 #include <stdio.h>
+#include <stdlib.h>
 //lembre-se de incluir as bibliotecas adequadas
 
-int main(){
-    printf("<< Vetor de pontos alocados dinamicamente >>");
+struct coordenadas{
+    int x;
+    int y;
+};
 
+int main(){
+    int i, n;
+    struct coordenadas *pontos, *maisAcima, *maisAbaixo, *maisAEsquerda, *maisADireita;
+
+    printf("Quantos pontos deseja digitar: ");
+    scanf("%d", &n);
+    pontos = (int *)malloc(n*sizeof(struct coordenadas));
+    
+    for(i=0; i<n; i++){
+        printf("\nEntre com a coordenada x do ponto %d: ", i+1);
+        scanf("%d", &pontos[i].x);
+        printf("Entre com a coordenada y do ponto %d: ", i+1);
+        scanf("%d", &pontos[i].y);
+    }
+    for(i=0; i<n; i++){
+        if(i==0){
+            maisAcima = &pontos[i];
+            maisAbaixo = &pontos[i];
+            maisAEsquerda = &pontos[i];
+            maisADireita = &pontos[i];
+        } else {
+            // Verifica a necessidade de atualizar o valor mais acima
+            if(pontos[i].y > maisAcima->y){
+                maisAcima = &pontos[i];
+            }
+            // Verifica a necessidade de atualizar o valor mais abaixo
+            if(pontos[i].y < maisAbaixo->y){
+                maisAbaixo = &pontos[i];
+            }
+            // Verifica a necessidade de atualizar o valor mais à esquerda
+            if(pontos[i].x < maisAEsquerda->x){
+                maisAEsquerda = &pontos[i];
+            }
+            // Verifica a necessidade de atualizar o valor mais à direita
+            if(pontos[i].x > maisADireita->x){
+                maisADireita = &pontos[i];
+            }
+        }
+    }
+    printf("\nPontos digitados: ");
+    for(i=0; i<n; i++){
+        if(i==n-1){
+            printf("(%d,%d)\n", pontos[i].x, pontos[i].y);
+        } else {
+            printf("(%d,%d); ", pontos[i].x, pontos[i].y);
+        }
+    }
+    printf("Ponto mais a esquerda: (%d,%d)\n", maisAEsquerda->x, maisAEsquerda->y);
+    printf("Ponto mais a direita: (%d,%d)\n", maisADireita->x, maisADireita->y);
+    printf("Ponto mais acima: (%d,%d)\n", maisAcima->x, maisAcima->y);
+    printf("Ponto mais abaixo: (%d,%d)\n", maisAbaixo->x, maisAbaixo->y);
     return 0;
 }
 
