@@ -42,13 +42,6 @@ int main(){
       relativeConsumption = ((eletrodoms[i].potencial*eletrodoms[i].tempoAtivo_dia*daysUsing)/totalConsumption)*100;
       printf("%s %.1f%%\n", eletrodoms[i].nome, relativeConsumption);
     }
-    
-  // Consumo relativo: 
-  // Geladeira 38.6%
-  // Ar Condicionado 24.1%
-  // Chuveiro 9.0%
-  // Radio 1.2%
-  // Computador 27.1%
     return 0;
 }
 
