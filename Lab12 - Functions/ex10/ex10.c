@@ -1,9 +1,21 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o valor de x: ");
-    printf("Digite o valor de y: ");
+struct pontos{
+    float x;
+    float y;
+};
 
+void imprime_ponto(struct pontos p){
+    printf("O ponto digitado eh: (%.0f,%.0f)\n", p.x, p.y);
+}
+
+int main(){
+    struct pontos p;
+    printf("Digite o valor de x: ");
+    scanf("%f", &p.x);
+    printf("Digite o valor de y: ");
+    scanf("%f", &p.y);
+    imprime_ponto(p);
     return 0;
 }
 

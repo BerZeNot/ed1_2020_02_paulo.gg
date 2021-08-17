@@ -1,9 +1,25 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o ponto: ");
-    printf("Digite a constante: ");
+struct pontos{
+    float x;
+    float y;
+};
 
+void multiplica(struct pontos *p1, struct pontos *pRes, int *constant){
+    pRes->x = p1->x *(*constant);
+    pRes->y = p1->y *(*constant);
+}
+
+int main(){
+    struct pontos p1, pRes;
+    int constant;
+    printf("Digite o ponto: ");
+    scanf("%f", &p1.x);
+    scanf("%f", &p1.y);
+    printf("Digite a constante: ");
+    scanf("%d", &constant);
+    multiplica(&p1, &pRes, &constant);
+    printf("Resultado: (%.f,%.f) * %d = (%.f,%.f)\n", p1.x, p1.y, constant, pRes.x, pRes.y);
     return 0;
 }
 

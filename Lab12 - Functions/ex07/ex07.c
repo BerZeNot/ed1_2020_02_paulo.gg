@@ -1,9 +1,21 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o número A: ");
-    printf("Digite o número B: ");
+void troque(int *a, int *b){
+    int numA=*a;
+    int numB=*b;
+    *a = numB;
+    *b = numA;
+}
 
+int main(){
+    int a, b;
+    printf("Digite o número A: ");
+    scanf("%d", &a);
+    printf("Digite o número B: ");
+    scanf("%d", &b);
+    troque(&a, &b);
+    printf("O número A eh: %d\n", a);
+    printf("O número B eh: %d\n", b);
     return 0;
 }
 

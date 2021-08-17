@@ -1,9 +1,27 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o valor de y: ");
-    printf("Digite o percentual de alteração x: ");
+float incp(float y, float x){
+    // printf("Y: %f\n",*y);
+    // printf("X: %f\n",*x);
+    if(x>0){
+        y = y + (y*x);
+        return y;
+    } else if (x < 0){
+        y = y - (y*x);
+        return y;
+    } else {
+        return y;
+    }
+}   
 
+int main(){
+    float x,y;
+    printf("Digite o valor de y: ");
+    scanf("%f", &y);
+    printf("Digite o percentual de alteração x: ");
+    scanf("%f", &x);
+    incp(y, x);
+    printf("O valor alterado eh: %.f\n", incp(y, x));
     return 0;
 }
 
