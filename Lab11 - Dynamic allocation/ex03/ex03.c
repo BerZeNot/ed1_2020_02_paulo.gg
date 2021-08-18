@@ -22,6 +22,7 @@ int main(){
     printf("\nSao pares: %d dos %d inteiros lidos.\n", qtdPares, n);
     printf("Sao impares: %d dos %d inteiros lidos.\n", (n-qtdPares), n);
 
+    free(numeros);
     return 0;
 }
 

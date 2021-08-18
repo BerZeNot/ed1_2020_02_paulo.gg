@@ -1,10 +1,33 @@
 #include <stdio.h>
 
-int main(){
-    printf("O vetor de origem eh: ");
-    printf("O vetor de destino eh: ");
-    printf("O vetor de destino apos a copia eh: ");
+void imprime_vet_int(int *vetori, int n){
+    for(int i=0; i<n; i++){
+        printf("%d ", vetori[i]);
+    }
+    printf("\n");
+}
 
+void copiarvet(int *vet_origem, int *vet_destino,int n){
+    for (int i = 0; i < n; i++){
+        vet_destino[i] = vet_origem[i];
+    }   
+}
+
+int main(){
+    int vet1[5] = {1, 2, 3, 4, 5};
+    int vetDestinos[5] = {1, 2, 3, 3, 6};
+    int n=5;
+    
+    printf("O vetor de origem eh: ");
+    imprime_vet_int(vet1, n);
+    printf("O vetor de destino eh: ");
+    imprime_vet_int(vetDestinos, n);
+
+    copiarvet(vet1, vetDestinos, n);
+
+    printf("O vetor de destino apos a copia eh: ");
+    imprime_vet_int(vetDestinos, n);
+    printf("\n");
     return 0;
 }
 

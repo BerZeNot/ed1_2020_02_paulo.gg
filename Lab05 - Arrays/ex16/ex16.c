@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int main(){ //falta fazer
     printf("<< Valores iguais >>\n");
 
     return 0;

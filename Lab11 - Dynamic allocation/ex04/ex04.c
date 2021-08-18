@@ -29,6 +29,7 @@ int main(){
         }
     }
     
+    free(pontos);
     return 0;
 }
 

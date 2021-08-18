@@ -1,8 +1,48 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+void imprime_vet_float(float *vetorf, int n){
+    printf("\nO vetor principal eh: ");
+    for(int i=0; i<n; i++){
+        printf("%.2f", vetorf[i]);
+        if(i<n-1){
+            printf(", ");
+        } else {
+            printf(" ");
+        }
+    }
+    printf("\n");
+}
+
+void leVetor(float *vetor, int tam){
+    for(int i=0; i<tam; i++){
+        printf("Digite o valor %d: ", i+1);
+        scanf("%f", &vetor[i]);
+    }
+}
+
+int negativos(float *vet, int N){
+    int qtdNegativos=0;
+    for (int i=0; i <N; i++){
+        if(vet[i] < 0){
+            qtdNegativos++;
+        }
+    }
+    return qtdNegativos;
+}
 
 int main(){
-    printf("<<  >>\n");
-
+    float *vet;
+    int n, qtdNegativos;
+    printf("<< Negativos no vetor >>\n");
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
+    vet = (float *)malloc(n*sizeof(float));
+    leVetor(vet, n);
+    qtdNegativos = negativos(vet, n);
+    imprime_vet_float(vet, n);
+    printf("O vetor tem %d numero(s) negativo(s)\n", qtdNegativos);
+    free(vet);
     return 0;
 }
 

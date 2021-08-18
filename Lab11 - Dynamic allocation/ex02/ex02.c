@@ -16,6 +16,7 @@ int main() {
         printf("\nO número(%d) eh: %d", i+1, numeros[i]);
     }
     printf("\n");
+    free(numeros);
     return 0;
 }
 

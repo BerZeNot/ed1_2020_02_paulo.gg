@@ -1,9 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+void imprime_vet_int(int *vetori, int n){
+    for(int i=0; i<n; i++){
+        printf("%d ", vetori[i]);
+    }
+    printf("\n");
+}
+
+void leVetor(int *vetor, int tam){
+    for(int i=0; i<tam; i++){
+        printf("Digite o valor %d: ", i+1);
+        scanf("%d", &vetor[i]);
+    }
+}
+
+void multvet(int *vetor, int n, int escalar){
+    for(int i=0; i<n; i++){
+        vetor[i] = vetor[i] * escalar;
+    }
+}
 
 int main(){
+    int tam, *vetor, escalar;
     printf("Digite o tamanho do vetor: ");
+    scanf("%d", &tam);
+    vetor = (int *)malloc(tam*sizeof(int));
+    leVetor(vetor, tam);
     printf("Digite o valor do escalar: ");
+    scanf("%d", &escalar);
 
+    printf("\nO vetor de origem eh: ");
+    imprime_vet_int(vetor, tam);
+    printf("O vetor final eh: ");
+    multvet(vetor, tam, escalar);
+    imprime_vet_int(vetor, tam);
+    free(vetor);
+    
     return 0;
 }
 

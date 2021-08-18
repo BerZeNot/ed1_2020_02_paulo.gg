@@ -46,6 +46,7 @@ int main(){
     leVetor(vetor, tam);
     imprime_vet_double(vetor, tam);
     maiorEmenor(vetor, tam);
+    free(vetor);
     return 0;
 }
 

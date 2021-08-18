@@ -1,8 +1,34 @@
 #include <stdio.h>
 
-int main(){
-    printf("Digite o tamanho do vetor: ");
+void imprime_vet_int(int *vetori, int n){
+    for(int i=0; i<n; i++){
+        printf("%d", vetori[i]);
+        if(i<n-1){
+            printf(", ");
+        } else {
+            printf(" ");
+        }
+    }
+    printf("\n");
+}
 
+int *aloca_inteiro(int n){
+    int *vetor = (int *)malloc(n*sizeof(int));
+    for(int i=0; i<n; i++){
+        vetor[i] = 0;
+    }
+    return vetor;
+}
+
+int main(){
+    int *p, tamanho;
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &tamanho);
+    p = aloca_inteiro(tamanho);
+    printf("O vetor eh: ");
+    imprime_vet_int(p, tamanho);
+
+    free(p);    
     return 0;
 }
 
