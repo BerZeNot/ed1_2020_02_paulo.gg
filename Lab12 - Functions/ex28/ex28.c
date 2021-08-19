@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void copiarvet(double *vetOrigem, double *vetDestino, int tamanho){
     vetDestino = (double *)malloc(tamanho*sizeof(double));

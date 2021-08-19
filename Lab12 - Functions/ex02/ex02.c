@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void desenhaLinha(int *tamanhoLinha){
     for(int i=0; i<*tamanhoLinha; i++)

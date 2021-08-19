@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int elevado(int *x, int *n){
     int potencia=*x;

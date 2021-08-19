@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void imprime_vet_int(int *vetori, int n){
     for(int i=0; i<n; i++){

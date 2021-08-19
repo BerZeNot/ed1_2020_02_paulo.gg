@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int calculaFatorial(int numero){
     int numFatorial=numero;

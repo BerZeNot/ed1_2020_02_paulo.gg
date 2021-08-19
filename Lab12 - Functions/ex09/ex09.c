@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void incp(float *y, float *x){
     // printf("Y: %f\n",*y);

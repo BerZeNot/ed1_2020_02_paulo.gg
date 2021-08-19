@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 //lembre-se de incluir as bibliotecas adequadas
 
 int main() {
@@ -19,7 +20,6 @@ int main() {
     free(numeros);
     return 0;
 }
-
 /*
 2) Crie um programa que:
     (a) Aloque dinamicamente um array de 5 números inteiros, 

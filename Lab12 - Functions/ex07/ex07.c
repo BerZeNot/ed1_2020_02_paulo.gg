@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void troque(int *a, int *b){
     int numA=*a;

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void leVetor(int *vetor, int tam){
     for(int i=0; i<tam; i++){
