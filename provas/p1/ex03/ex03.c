@@ -27,15 +27,37 @@
 +-------------------+-----------------------------------------------+----------------+
 
 */
-
+float calculaLucro(float compra, float venda){
+    float lucroPercent;
+    lucroPercent = (venda-compra)*10;
+    return lucroPercent;
+}
 int main(){
 
    // Ex03: utilizando a função de cálculo de lucro, leia o preço de compra e venda
    // e mostre o percentual de lucro ou prejuízo e a classificação de acordo com
    // a tabela acima. 
-   printf("Digite o preco de compra:");
+   
+    float compra, venda;
+    float lucro;
+    printf("Digite o preco de compra: ");
+    scanf("%f", &compra);
+    printf("Digite o preco de venda: ");
+    scanf("%f", &venda);
+    lucro = calculaLucro(compra, venda);
+    if(lucro<0){
+        printf("Prejuízo de %.f%%\n", lucro*-1);
+    } else if(lucro>0 && lucro <= 20){
+        printf("Lucro pequeno de %.f%%\n", lucro);
+    } else if(lucro>=20 && lucro<=40){
+        printf("Lucro bom de %.f%%\n", lucro);
+    } else if(lucro>40){
+        printf("Lucro alto de %.f%%\n", lucro);
+    } else{
+        printf("Valor inválido!\n", lucro);
+    }
 
-   printf("Digite o preco de venda:");
+    
    
    // exemplo de saída:
    // Preço de compra: 10; Preco de venda:11; Lucro Pequeno de 10%

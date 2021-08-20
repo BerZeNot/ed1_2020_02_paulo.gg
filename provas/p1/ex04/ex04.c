@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include <math.h>
 
+struct ponto {
+    float x;
+    float y;
+};
+
+struct circulo{
+    struct ponto centro;
+    float raio;
+};
+
+
 int main(){
 
    // Ex04: Um círculo pode ser definido com duas informações
@@ -20,6 +31,17 @@ int main(){
    
    // Exemplo de saída: Circulo: Centro (3,5); Raio 2; Área: 12.56; Distancia: 5.0
 
-
+    struct circulo c1;
+    float area, distancia;
+    c1.centro.x = 3;
+    c1.centro.y = 5;
+    c1.raio = 2;
+    area = 3.14*c1.raio*c1.raio;
+    distancia = sqrt(((c1.centro.x * c1.centro.x),(c1.centro.y*c1.centro.y)));
+    printf("Circulo:\n");
+    printf("Centro: (%.f,%.f);\n", c1.centro.x, c1.centro.y);
+    printf("Raio: %.f;\n", c1.raio);
+    printf("Área: %.2f;\n", area);
+    printf("Distancia: %.1f;\n", distancia);
     return 0;
 }
