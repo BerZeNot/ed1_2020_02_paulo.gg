@@ -37,11 +37,11 @@ int main(){
     c1.centro.y = 5;
     c1.raio = 2;
     area = 3.14*c1.raio*c1.raio;
-    distancia = sqrt(((c1.centro.x * c1.centro.x),(c1.centro.y*c1.centro.y)));
+    distancia = sqrt(((c1.centro.x * c1.centro.x)+(c1.centro.y*c1.centro.y)));
     printf("Circulo:\n");
     printf("Centro: (%.f,%.f);\n", c1.centro.x, c1.centro.y);
     printf("Raio: %.f;\n", c1.raio);
     printf("Área: %.2f;\n", area);
-    printf("Distancia: %.1f;\n", distancia);
+    printf("Distancia: %.2f;\n", distancia);
     return 0;
 }
