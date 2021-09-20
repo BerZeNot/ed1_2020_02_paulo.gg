@@ -27,10 +27,14 @@
 +-------------------+-----------------------------------------------+----------------+
 
 */
+// check:<<<erro: e3.1b: A função deve calcular e retornar por referência a porcentagem>>>>
+// check:<<<erro: e3.1c: A função deve retornar um valor inteiro conforme tabela do enunciado>>>>
+// check:<<<erro: e3.2: Faltou testar os valores inválidos dentro da função / teste errado / faltou alguns testes>>>>
 float calculaLucro(float compra, float venda){
     float lucroPercent;
-    lucroPercent = (venda-compra)*10;
+// check:<<<erro: e3.3: Cálculo com erros (não corresponde a porcentagem pedida OU erro na fórmula OU porcentagem baseada na venda e não na compra OU divisão inteira )>>>>    lucroPercent = (venda-compra)*10;
     return lucroPercent;
+ // check:<<<erro: não fez os IF para testes>>>>
 }
 int main(){
 
@@ -45,6 +49,10 @@ int main(){
     printf("Digite o preco de venda: ");
     scanf("%f", &venda);
     lucro = calculaLucro(compra, venda);
+
+// check:<<<erro: e3.5a: Não mostrou a porcentagem>>>>
+// check:<<<erro: e3.6: e3.6: Chamada de função com erros (parâmetro de entrada e/ou saída) ou faltando a passagem por referência>>>>
+
     if(lucro<0){
         printf("Prejuízo de %.f%%\n", lucro*-1);
     } else if(lucro>0 && lucro <= 20){
