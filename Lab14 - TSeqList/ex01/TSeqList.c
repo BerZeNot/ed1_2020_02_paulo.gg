@@ -10,9 +10,6 @@ typedef struct lista{
     struct aluno dados[MAX];
 } Lista;
 
-
-// Inicializa uma lista de alunos
-// Return: ponteiro para uma lista de alunos vazia.
 Lista* criar_lista(){
     Lista *list;
     list = (Lista *)malloc(MAX*sizeof(struct lista));
@@ -134,11 +131,6 @@ int tamanho_lista(Lista *li){
     return -1;
 }
 
-// Retorna se a lista está cheia
-// Return:
-//    0 - se a lista estiver cheia
-//    1 - se a lista não estiver cheia
-//   -1 - se houver algum erro
 int lista_cheia(Lista *li){
     if(li != NULL){
         if(li->qtd == MAX)
@@ -149,11 +141,6 @@ int lista_cheia(Lista *li){
     return -1; 
 }
 
-// Retorna se a lista está cheia
-// Return:
-//    0 - se a lista estiver vazia
-//    1 - se a lista não estiver vazia
-//   -1 - se houver algum erro
 int lista_vazia(Lista *li){
     if(li != NULL){
         if(li->qtd==0)
