@@ -95,3 +95,8 @@ void imprime_lista(Lista *li);
 //  0 - Em caso de sucesso
 // -1 - Em caso de erro.
 int remove_lista_otimizado(Lista *li, int mat);
+
+
+int troca_pos_lista(Lista *li, int pos1, int pos2);
+
+int remove_intervalo_lista(Lista *li, int posI, int posF);

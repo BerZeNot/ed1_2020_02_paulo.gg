@@ -50,10 +50,6 @@ int mat2d_increase_size(TMat2D *mat, int nrows, int ncols){
                 }
             }
         }
-        // int auxPos = mat->ncolumns*mat->ncolumns;
-        // for(auxPos; auxPos<(nrows*ncols); auxPos++){
-        //     dataTemp[auxPos] = 0;
-        // }
         mat->nrows = nrows; // refresh number of lines
         mat->ncolumns = ncols; // refresh number of columns
         free(mat->data); // free the memory alocated before

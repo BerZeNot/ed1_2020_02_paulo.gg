@@ -182,3 +182,36 @@ int remove_lista_otimizado(Lista *li, int mat){
     li->qtd--;
     li->dados[i] = li->dados[li->qtd];
 }
+
+int troca_pos_lista(Lista *li, int pos1, int pos2){
+    if(li == NULL)
+        return -1;
+    if(pos1 > li->qtd || pos2 > li->qtd)
+        return -1;
+    if(pos1 <=0 || pos2<=0)
+        return -1;
+    
+    struct aluno temp;
+    temp = li->dados[pos1-1];
+    li->dados[pos1-1] = li->dados[pos2-1];
+    li->dados[pos2-1] = temp;
+    return 0;
+}
+
+int remove_intervalo_lista(Lista *li, int posI, int posF){
+    if(li == NULL)
+        return -1;
+    if(posI <= 0 || posF <=0)
+        return -1;
+    if(posI > li->qtd || posF > li->qtd)
+        return -1;
+    if(posF < posI)
+        return -1;
+
+    int qtdToRemove = posF - (posI-1);
+    for(int i=posI-1; i < li->qtd; i++){
+        li->dados[i] = li->dados[i+qtdToRemove];
+    }
+    li->qtd = li->qtd - qtdToRemove;
+    return 0;
+}

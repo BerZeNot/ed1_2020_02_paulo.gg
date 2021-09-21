@@ -4,7 +4,7 @@
 
 int main(){
     printf("TAD Lista\n");
-    Lista *l1 = criar_lista();
+    Lista *l1 = criar_lista(10);
     struct aluno alns[3];
     strcpy(alns[0].nome, "Paulo Giovany");
     alns[0].matricula = 12011250;

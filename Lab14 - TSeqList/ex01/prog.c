@@ -27,7 +27,7 @@ int main(){
     insere_lista_final(l1, alns[0]);
     insere_lista_final(l1, alns[1]);
     insere_lista_inicio(l1, alns[2]);
-    imprime_lista(l1);
+    // imprime_lista(l1);
 
     /*printf("Tamanho da lista: %d\n", tamanho_lista(l1));
     printf("Lista cheia?: ");
@@ -85,15 +85,23 @@ int main(){
     novoAluno.n2 = 9.8;
     novoAluno.n3 = 10;
 
-    printf("\nInserindo orgenadamente:\n");
-    insere_lista_ordenada(l1, novoAluno);
-    imprime_lista(l1);
+    // printf("\nInserindo orgenadamente:\n");
+    // insere_lista_ordenada(l1, novoAluno);
+    // imprime_lista(l1);
 
 
-    printf("\nRemove otimizado:\n");
-    remove_lista_otimizado(l1,12211253);
+    // printf("\nRemove otimizado:\n");
+    // remove_lista_otimizado(l1,12211253);
+    // imprime_lista(l1);
+    
+    // // troca_pos_lista(l1,2,3);
+
+
     imprime_lista(l1);
     
+    remove_intervalo_lista(l1, 1,2);
+
+    imprime_lista(l1);
 
     return 0;
 }

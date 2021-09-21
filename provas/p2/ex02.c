@@ -12,3 +12,21 @@ Exemplo de chamada da função:
 remove_intervalo_lista(lista,5,9)
 
 */
+
+int remove_intervalo_lista(Lista *li, int posI, int posF){
+    if(li == NULL)
+        return -1;
+    if(posI <= 0 || posF <=0)
+        return -1;
+    if(posI > li->qtd || posF > li->qtd)
+        return -1;
+    if(posF < posI)
+        return -1;
+
+    int qtdToRemove = posF - (posI-1);
+    for(int i=posI-1; i < li->qtd; i++){
+        li->dados[i] = li->dados[i+qtdToRemove];
+    }
+    li->qtd = li->qtd - qtdToRemove;
+    return 0;
+}

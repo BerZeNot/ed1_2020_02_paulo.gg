@@ -32,3 +32,34 @@ mat2d_increase_size(mat,3,3)
  };
 
 */
+
+int mat2d_increase_size(TMat2D *mat, int nrows, int ncols){
+    if(mat == NULL)
+        return -1;
+    if(nrows <= mat->nrows || ncols <= mat->ncolumns)
+        return -1;
+
+    double *dataTemp;
+    dataTemp = malloc(nrows*ncols*sizeof(double));
+    if(dataTemp==NULL)
+        return -1;
+    else{
+        int pos;
+        for(int i=0; i<nrows; i++){
+            for(int j=0; j<ncols; j++){
+                pos = j * mat->nrows + i;
+                if(i < mat->nrows && j < mat->ncolumns){
+                    dataTemp[pos] = mat->data[pos];
+                }
+                else{
+                    dataTemp[pos] = 0;
+                }
+            }
+        }
+        mat->nrows = nrows; // refresh number of lines
+        mat->ncolumns = ncols; // refresh number of columns
+        free(mat->data); // free the memory alocated before
+        mat->data = dataTemp; // set the new pointer
+    }    
+    return 0;
+}
