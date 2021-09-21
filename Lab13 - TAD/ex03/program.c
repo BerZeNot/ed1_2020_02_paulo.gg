@@ -5,10 +5,10 @@
 
 int main()
 {
-    int response, nrows=3, ncolumns=3;
-    TMat2D *matriz, *mat2, *matResult;
-    matriz = mat2D_create(nrows,ncolumns);
-    mat2D_fill_with_random(matriz, 1, 2);
+    // int response, nrows=3, ncolumns=3;
+    // TMat2D *matriz, *mat2, *matResult;
+    // matriz = mat2D_create(nrows,ncolumns);
+    // mat2D_fill_with_random(matriz, 1, 2);
     /*
     // test if the value was insert into the matrix with sucess
 
@@ -77,32 +77,48 @@ int main()
     mat2D_print_matrix(matResult);
 
     */
-    // calculates the trace of a matrix
+    // // calculates the trace of a matrix
 
-    // prints the number of columns and rows of the matrix
-    int nrws; 
-    int ncls; 
-    mat2D_get_number_of_rows(matriz, &nrws);
-    mat2D_get_number_of_columns(matriz, &ncls);
-    printf("About matrix: \n");
-    printf("Number of Rows: %d\n", nrws);
-    printf("Number of Columns: %d\n", ncls);
+    // // prints the number of columns and rows of the matrix
+    // int nrws; 
+    // int ncls; 
+    // mat2D_get_number_of_rows(matriz, &nrws);
+    // mat2D_get_number_of_columns(matriz, &ncls);
+    // printf("About matrix: \n");
+    // printf("Number of Rows: %d\n", nrws);
+    // printf("Number of Columns: %d\n", ncls);
 
 
-    // Using the function to calculate the trace of the matrix 
-    // and printing the result
+    // // Using the function to calculate the trace of the matrix 
+    // // and printing the result
     
-    mat2D_print_matrix(matriz);
-    double trace;
-    mat2D_calculate_trace(matriz, &trace);
-    printf("Trace of the matrix: %lf\n", trace);
+    // mat2D_print_matrix(matriz);
+    // double trace;
+    // mat2D_calculate_trace(matriz, &trace);
+    // printf("Trace of the matrix: %lf\n", trace);
 
-    // sums the lines of the matrix and put the result into a vector
-    double vector[nrows];
-    mat2D_sum_lines(matriz, vector);
-    printf("Sum vector:\n");
-    for(int i=0; i<nrows; i++)
-        printf("[%lf]", vector[i]);
+    // // sums the lines of the matrix and put the result into a vector
+    // double vector[nrows];
+    // mat2D_sum_lines(matriz, vector);
+    // printf("Sum vector:\n");
+    // for(int i=0; i<nrows; i++)
+    //     printf("[%lf]", vector[i]);
+    // printf("\n");
+    // return 0;
+
+
+    int nrows=2, ncolumns=2;
+    TMat2D *matriz;
+    matriz = mat2D_create(nrows,ncolumns);
+    mat2D_set_value(matriz, 0,0,2.0);
+    mat2D_set_value(matriz, 0,1,2.0);
+    mat2D_set_value(matriz, 1,0,2.0);
+    mat2D_set_value(matriz, 1,1,5.0);
+    mat2D_set_value(matriz, 2,0,2.0);
+    mat2D_set_value(matriz, 2,1,2.0);
+
+    mat2D_print_matrix(matriz);
     printf("\n");
-    return 0;
+    mat2d_increase_size(matriz, 3,3);
+    mat2D_print_matrix(matriz);
 }

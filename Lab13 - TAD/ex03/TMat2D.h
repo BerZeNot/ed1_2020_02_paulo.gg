@@ -34,3 +34,5 @@ int mat2D_get_number_of_rows(TMat2D *mat, int *result);
 int mat2D_get_number_of_columns(TMat2D *mat, int *result);
 
 int mat2D_print_matrix(TMat2D *mat);
+
+int mat2d_increase_size(TMat2D *mat, int nrows, int ncols);
