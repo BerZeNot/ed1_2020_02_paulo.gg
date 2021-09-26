@@ -41,13 +41,17 @@ int mat2d_increase_size(TMat2D *mat, int nrows, int ncols){
         int pos;
         for(int i=0; i<nrows; i++){
             for(int j=0; j<ncols; j++){
-                pos = j * mat->nrows + i;
+                pos = j * nrows + i;
+                
                 if(i < mat->nrows && j < mat->ncolumns){
                     dataTemp[pos] = mat->data[pos];
+                    printf("ADD -> i:%d | j:%d, valor: %lf\n", i, j, dataTemp[pos]);
                 }
                 else{
                     dataTemp[pos] = 0;
+                    printf("IGNR -> i:%d | j:%d, valor: %lf\n", i, j, dataTemp[pos]);
                 }
+                // dataTemp[pos] = 6;
             }
         }
         mat->nrows = nrows; // refresh number of lines

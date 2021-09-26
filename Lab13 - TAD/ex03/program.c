@@ -112,10 +112,8 @@ int main()
     matriz = mat2D_create(nrows,ncolumns);
     mat2D_set_value(matriz, 0,0,2.0);
     mat2D_set_value(matriz, 0,1,2.0);
-    mat2D_set_value(matriz, 1,0,2.0);
-    mat2D_set_value(matriz, 1,1,5.0);
-    mat2D_set_value(matriz, 2,0,2.0);
-    mat2D_set_value(matriz, 2,1,2.0);
+    mat2D_set_value(matriz, 1,0,5.0);
+    mat2D_set_value(matriz, 1,1,2.0);
 
     mat2D_print_matrix(matriz);
     printf("\n");
