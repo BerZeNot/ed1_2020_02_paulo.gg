@@ -43,9 +43,9 @@ int main(){
     TLinkedList *list;
     list = list_create();
     
+    list_insert_sorted(list,al[3]);
     list_insert_sorted(list,al[1]);
     list_insert_sorted(list,al[0]);
-    list_insert_sorted(list,al[3]);
     list_insert_sorted(list,al[2]);
     list_insert_sorted(list,al[4]);
     

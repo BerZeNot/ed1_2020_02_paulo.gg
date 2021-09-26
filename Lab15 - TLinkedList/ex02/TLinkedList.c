@@ -11,15 +11,22 @@ struct list_node{
 
 struct TLinkedList{
     list_node *head;
+    // Amount of elements on list
+    int size; 
+    // indicates if the list is sorted by registration number
+    // 0 - not sorted; 1 - sorted;
+    int sorted; 
 };
 
 
 
-TLinkedList* list_create(){
+TLinkedList* list_create(int sorted){
     TLinkedList *list;
     list = malloc(sizeof(TLinkedList));
     if(list != NULL){
         list->head = NULL;
+        list->size = 0;
+        list->sorted = sorted;
         return list;
     }
 }
@@ -49,6 +56,9 @@ int list_push_front(TLinkedList *li, struct aluno al){
     if(li == NULL)
         return INVALID_NULL_POINTER;
     
+    if(li->sorted == 1)
+        return LIST_SORTED_EXCEPTION;
+
     list_node *node;
     node = malloc(sizeof(list_node));
     
@@ -64,6 +74,7 @@ int list_push_front(TLinkedList *li, struct aluno al){
         node->next = li->head;
         li->head = node;
     }
+    li->size++;
     return SUCESS;
 }
 
@@ -71,6 +82,9 @@ int list_push_back(TLinkedList *li, struct aluno al){
     if(li == NULL)
         return INVALID_NULL_POINTER;
     
+    if(li->sorted == 1)
+        return LIST_SORTED_EXCEPTION;
+
     list_node *node;
     node = malloc(sizeof(list_node));
 
@@ -90,12 +104,17 @@ int list_push_back(TLinkedList *li, struct aluno al){
         }
         aux->next = node;
     }
-
+    li->size++;
+    return SUCESS;
 }
 
 int list_insert_sorted(TLinkedList *li, struct aluno al){
     if(li == NULL)
         return INVALID_NULL_POINTER;
+    
+    else if(li->sorted == 0)
+        return LIST_NOT_SORTED_EXCEPTION;
+
     else{
 
         list_node *node;
@@ -108,6 +127,7 @@ int list_insert_sorted(TLinkedList *li, struct aluno al){
         if(li->head == NULL){    
             li->head = node;
             node->next = NULL;
+            li->size++;
             return SUCESS;
         } else if(li->head->next == NULL){
             if(li->head->data.matricula < node->data.matricula){
@@ -115,6 +135,7 @@ int list_insert_sorted(TLinkedList *li, struct aluno al){
             } else {
                 node->next = li->head;
                 li->head = node;
+                li->size++;
                 return SUCESS;
             }
         
@@ -134,26 +155,14 @@ int list_insert_sorted(TLinkedList *li, struct aluno al){
                 prev->next = node;
                 node->next = curr;
             }
+            li->size++;
             return SUCESS;
         }
     }
 }
 
 int list_size(TLinkedList *li){
-    if(li == NULL)
-        return INVALID_NULL_POINTER;
-    if(li->head == NULL)
-        return 0;
-
-    int size=0;
-    list_node *aux;
-    aux = li->head;
-    size++;
-    while(aux->next!= NULL){
-        size++;
-        aux = aux->next;
-    }
-    return size;
+    return li->size;
 }
 
 int list_pop_front(TLinkedList *li){
@@ -168,6 +177,7 @@ int list_pop_front(TLinkedList *li){
             aux = li->head;
             li->head = li->head->next;
             free(aux);
+            li->size--;
             return SUCESS;
         }
     } 
@@ -190,6 +200,7 @@ int list_pop_back(TLinkedList *li){
             }
             prev->next = NULL;
             free(curr);
+            li->size--;
             return SUCESS;
         }
     }
@@ -215,6 +226,7 @@ int list_erase_data(TLinkedList *li, int mat){
             else{
                 prev->next = curr->next;
                 free(curr);
+                li->size--;
                 return SUCESS;
             }
         }
@@ -244,6 +256,7 @@ int list_erase_pos(TLinkedList *li, int pos){
             if(currPos == pos){
                 prev->next = curr->next;
                 free(curr);
+                li->size--;
                 return SUCESS;
             }
             else
