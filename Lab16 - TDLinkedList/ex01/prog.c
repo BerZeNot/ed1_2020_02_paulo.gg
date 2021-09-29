@@ -4,6 +4,7 @@
 #include "TDLinkedList.h"
 
 int main(){
+    
     printf("<< Main Program >>\n");
 
     struct student stdts[5];
@@ -55,11 +56,96 @@ int main(){
 
     for(int i=0; i<5; i++)
         list_push_back(list, stdts[i]);
-
+    
+    
+    /*
+    // Testing list_print_foward()
     list_print_foward(list);
 
+    Testing list_size()
     int listSize;
     listSize = list_size(list);
     printf("\n<< List size: %d >>\n", listSize);
+    list_free(list);
+    list_print_reverse(list);
+
+    printf("--> Original list\n");
+    list_print_foward(list);
+    
+    // Testing this function bellow
+    list_pop_front(list);
+    
+    printf("\n--> After list_pop_front\n");
+    list_print_foward(list);
+    
+    printf("--> Original list\n");
+    list_print_foward(list);
+    printf("Size: %d\n", list_size(list));
+    
+    // Testing this function bellow
+    list_pop_back(list);
+    
+    printf("\n--> After list_pop_back\n");
+    list_print_foward(list);
+    printf("Size: %d\n", list_size(list));
+    
+    // Testing this function bellow
+    printf("Before erase:\n");
+    list_print_foward(list);
+    
+    list_erase(list, 1);
+    printf("\nAfter erase:\n");
+    list_print_foward(list);
+
+    // Testing this function: list_find_pos()
+    struct student stdnt;
+    int response;
+    response = list_find_pos(list, 1, &stdnt);
+    if(response == 0){
+        printf("Stutend found: %s\n", stdnt.name);
+        printf("Registration: %d\n", stdnt.registration);
+    } else if(response == -1)
+        printf("Invalid Null Pointer\n");
+    else if(response == -4)
+        printf("Element Not Found\n");
+    */
+
+    // Testing the function list_find_mat()
+    struct student stdnt;
+    int response;
+    list_print_foward(list);
+    response = list_find_mat(list, 1201101, &stdnt);
+    if(response == 0){
+        printf("\nStudent found by registration:\n");
+        printf("Name: %s\n",stdnt.name);
+        printf("Registration: %d\n",stdnt.registration);
+    }
+    else if(response == -1)
+        printf("\nInvalid Null Pointer\n");
+    else if(response == -4)
+        printf("\nElement not found\n");
+
+    // Tesging list_front()
+    list_front(list, &stdnt);
+    printf("\nAt list front:\n");
+    printf("Name: %s\n",stdnt.name);
+
+    // Tesging list_back()
+    list_back(list, &stdnt);
+    printf("\nAt list back:\n");
+    printf("Name: %s\n",stdnt.name);
+    
+    // Testing list_get_pos()
+    int pos, nmat = 1201115;
+    response = list_get_pos(list, nmat, &pos);
+    if(response == 0){
+        printf("\nStudent's %d position: %d\n",nmat, pos);
+    }
+    else if(response == -1)
+        printf("\nInvalid Null Pointer!\n");
+    else if(response == -4)
+        printf("\nElement %d not found!\n", nmat);
+
+
     return 0;
 }
