@@ -1,4 +1,4 @@
-#define SUCESS 0
+#define SUCCESS 0
 #define INVALID_NULL_POINTER -1
 #define OUT_OF_MEMORY -2
 #define OUT_OF_RANGE -3

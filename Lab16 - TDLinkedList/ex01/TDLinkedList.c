@@ -34,7 +34,7 @@ int list_free(TDLinkedList *list){
     else{
         if(list->begin == NULL){
             free(list);
-            return SUCESS;
+            return SUCCESS;
         } else {
             DLNode *aux;
             aux = list->begin;
@@ -44,7 +44,7 @@ int list_free(TDLinkedList *list){
             } while(aux->next != NULL);
             free(aux);
             free(list);
-            return SUCESS;
+            return SUCCESS;
         }
     }
 }
@@ -67,17 +67,17 @@ int list_push_front(TDLinkedList *list, struct student al){
             list->begin = node;
             list->end = node;
             list->size++;
-            return SUCESS;
+            return SUCCESS;
 
         } else {
             node->next = list->begin;
             list->begin->prev = node;
             list->begin = node;
             list->size++;
-            return SUCESS;
+            return SUCCESS;
         }
     }
-    return SUCESS;
+    return SUCCESS;
 }
 
 int list_push_back(TDLinkedList *list, struct student al){
@@ -106,7 +106,7 @@ int list_push_back(TDLinkedList *list, struct student al){
 
         }
     }
-    return SUCESS;
+    return SUCCESS;
 }
 
 int list_pop_front(TDLinkedList *list){
@@ -128,7 +128,7 @@ int list_pop_front(TDLinkedList *list){
     }
     free(aux);
     list->size--;
-    return SUCESS;
+    return SUCCESS;
 }
 
 int list_pop_back(TDLinkedList *list){
@@ -151,7 +151,7 @@ int list_pop_back(TDLinkedList *list){
     }
     free(aux);
     list->size--;
-    return SUCESS;
+    return SUCCESS;
 }
 
 int list_erase(TDLinkedList *list, int pos){
@@ -174,7 +174,7 @@ int list_erase(TDLinkedList *list, int pos){
             list->end = NULL;
             free(aux);
             list->size--;
-            return SUCESS;
+            return SUCCESS;
         }
     }
     else {
@@ -189,7 +189,7 @@ int list_erase(TDLinkedList *list, int pos){
         aux->next->prev = aux->prev;
         free(aux);
         list->size--;
-        return SUCESS;
+        return SUCCESS;
         
     }
 }
@@ -208,7 +208,7 @@ int list_find_pos(TDLinkedList *list, int pos, struct student *al){
             return ELEM_NOT_FOUND;
         else {
             *al = list->begin->data;
-            return SUCESS;
+            return SUCCESS;
         }
     } else {
         DLNode *aux;
@@ -219,7 +219,7 @@ int list_find_pos(TDLinkedList *list, int pos, struct student *al){
             currPos++;
         }
         *al = aux->data;
-        return SUCESS;
+        return SUCCESS;
     }
 }
 
@@ -237,7 +237,7 @@ int list_find_mat(TDLinkedList *list, int nmat, struct student *al){
                 return ELEM_NOT_FOUND;
             else{
                 *al = aux->data;
-                return SUCESS;
+                return SUCCESS;
             }
         } else {
             while((aux != NULL ) && aux->data.registration != nmat){
@@ -247,7 +247,7 @@ int list_find_mat(TDLinkedList *list, int nmat, struct student *al){
                 return ELEM_NOT_FOUND;
             else{
                 *al = aux->data;
-                return SUCESS;
+                return SUCCESS;
             }
         }
     }
@@ -261,7 +261,7 @@ int list_front(TDLinkedList *list, struct student *al){
             return ELEM_NOT_FOUND;
         else{
             *al = list->begin->data;
-            return SUCESS;
+            return SUCCESS;
         }
     }
 }
@@ -274,7 +274,7 @@ int list_back(TDLinkedList *list, struct student *al){
             return ELEM_NOT_FOUND;
         else{
             *al = list->end->data;
-            return SUCESS;
+            return SUCCESS;
         }
     }
 }
@@ -290,7 +290,7 @@ int list_get_pos(TDLinkedList *list, int nmat, int *pos){
                 return ELEM_NOT_FOUND;
             else{
                 *pos = 1;
-                return SUCESS;
+                return SUCCESS;
             }
         } else {
             DLNode *aux;
@@ -305,7 +305,7 @@ int list_get_pos(TDLinkedList *list, int nmat, int *pos){
                 return ELEM_NOT_FOUND;
             else{
                 *pos = currPos;
-                return SUCESS;
+                return SUCCESS;
             }
         }
     }
@@ -333,7 +333,7 @@ int list_print_foward(TDLinkedList *list){
             printf("Note 3: %.2f\n",aux->data.n3);
             aux = aux->next;
         }
-        return SUCESS;
+        return SUCCESS;
     }
 }
 
@@ -352,6 +352,6 @@ int list_print_reverse(TDLinkedList *list){
             printf("Note 3: %.2f\n",aux->data.n3);
             aux = aux->prev;
         }
-        return SUCESS;
+        return SUCCESS;
     }
 }
