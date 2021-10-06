@@ -12,51 +12,57 @@ typedef struct lista{
 
 TSeqList* list_create(){
     TSeqList *list;
-    list = (TSeqList *)malloc(MAX*sizeof(struct lista));
+    list = (TSeqList *)malloc(sizeof(struct lista));
     if(list != NULL){
         list->qtd = 0;
         return list;
     }
+    return NULL;
 }
 
 int list_free(TSeqList *li){
-    if(li!=NULL){
+    if(li == NULL)
+        return INVALID_NULL_POINTER;
+    else{
         free(li);
-        return 0;
-    } else {
-        return -1;
+        li = NULL;
+        return SUCCESS;
     }
 }
 
 int list_push_back(TSeqList *li, struct aluno al){
     if(li == NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
     
     if(li->qtd == MAX)
-        return -1;
+        return OUT_OF_RANGE;
 
     li->dados[li->qtd] = al;
     li->qtd++;
-    return 0;
+    return SUCCESS;
 }
 
 int list_pop_back(TSeqList *li){
-    if(li == NULL ||  li->qtd <= 0)
-        return -1;
+    if(li == NULL)
+        return INVALID_NULL_POINTER;
+    
+    if(li->qtd <= 0)
+        return OUT_OF_RANGE;
     else{
-        printf("-> Passou\n");
         li->qtd--;
-        printf("li->qtd = %d\n", li->qtd);
     }
-    return 0;
+    return SUCCESS;
 }
 
 int list_get_back(TSeqList *li, struct aluno *al){
     if(li==NULL)
-        return -1;
+        return INVALID_NULL_POINTER;
+    
+    if(li->qtd <= 0)
+        return OUT_OF_RANGE;
     
     *al = li->dados[li->qtd-1];
-    return 0;
+    return SUCCESS;
 }
 
 int list_empty(TSeqList *li){
@@ -66,7 +72,7 @@ int list_empty(TSeqList *li){
         else
             return 1;
     }
-    return -1;
+    return INVALID_NULL_POINTER;
 }
 
 int list_full(TSeqList *li){

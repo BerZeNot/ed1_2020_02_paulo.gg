@@ -5,7 +5,7 @@
 
 int main(){
     struct aluno alns[3];
-
+    struct aluno aux;
     // Students declaration;
     {
         strcpy(alns[0].nome, "Adamastor");
@@ -31,16 +31,40 @@ int main(){
     st = stack_create();
     int result;
     result = stack_push(st, alns[0]);
+    result = stack_push(st, alns[1]);
+    result = stack_push(st, alns[2]);
+
     if(result == 0)
         printf("Push successful\n");
     
-    result = stack_free(st);
-    if(result == 0)
-        printf("Free successful\n");
     
     result = stack_pop(st);
     if(result == 0)
         printf("Pop successful\n");
-        
+    
+
+    stack_print(st);
+
+    result = stack_empty(st);
+    if(result == 0)
+        printf("Stack is empty\n");
+    if(result == 1)
+        printf("Stack is not empty\n");
+
+    result = stack_full(st);
+    if(result == 0)
+        printf("Stack is full\n");
+    if(result == 1)
+        printf("Stack is not full\n");
+
+
+
+    printf("<< Aluno no topo da pilha >>\n");
+    stack_top(st, &aux);
+    printf("Nome: %s\n", aux.nome);
+
+    result = stack_free(st);
+    if(result == 0)
+        printf("Free successful\n");
     return 0;
 }
