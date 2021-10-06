@@ -41,11 +41,13 @@ int list_push_back(TSeqList *li, struct aluno al){
 }
 
 int list_pop_back(TSeqList *li){
-    if(li == NULL)
+    if(li == NULL ||  li->qtd < 0)
         return -1;
-    else
+    else{
         printf("-> Passou\n");
+        li->qtd--;
         printf("li->qtd = %d\n", li->qtd);
+    }
     return 0;
 }
 
