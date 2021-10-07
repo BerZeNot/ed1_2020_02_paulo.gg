@@ -32,7 +32,7 @@ mat2d_increase_size(mat,3,3)
  };
 
 */
-
+// check:<<<erro: e3.3: deve-se lembrar da representação linear da matriz na memória. Isso implica em reposicionar alguns elementos no vetor linear que estavam na matriz original>>>>
 int mat2d_increase_size(TMat2D *mat, int nrows, int ncols){
     if(mat == NULL)
         return -1;
@@ -49,7 +49,7 @@ int mat2d_increase_size(TMat2D *mat, int nrows, int ncols){
             for(int j=0; j<ncols; j++){
                 pos = j * mat->nrows + i;
                 if(i < mat->nrows && j < mat->ncolumns){
-                    dataTemp[pos] = mat->data[pos];
+                    dataTemp[pos] = mat->data[pos];// check:<<<erro: não pode usar o mesmo indexador para os dois vetores pois as matrizes originais possuem tamanho diferente>>>>
                 }
                 else{
                     dataTemp[pos] = 0;

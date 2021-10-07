@@ -24,6 +24,7 @@ int remove_intervalo_lista(Lista *li, int posI, int posF){
         return -1;
 
     int qtdToRemove = posF - (posI-1);
+    // check:<<<erro: e2.3b: invade a memória (por exemplo se remover os últimos elementos) - não limitou à quantidade de elementos na lista>>>>
     for(int i=posI-1; i < li->qtd; i++){
         li->dados[i] = li->dados[i+qtdToRemove];
     }
