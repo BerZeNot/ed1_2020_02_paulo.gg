@@ -90,7 +90,7 @@ int list_push_back(TLinkedList *li, struct aluno al){
         }
         aux->next = node;
     }
-
+    return SUCESS;
 }
 
 int list_insert_sorted(TLinkedList *li, struct aluno al){

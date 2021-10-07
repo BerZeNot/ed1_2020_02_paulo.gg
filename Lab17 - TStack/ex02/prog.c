@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "TStack.h"
-#include "aluno.h"
 
 int main(){
     struct aluno alns[3];
