@@ -21,7 +21,7 @@ int main(){
         // Student 2
         strcpy(stdts[1].name, "Bentosvaldo");
         stdts[1].registration = 1201102;
-        stdts[1].n1 = 7;
+        stdts[1].n1 = 9.0;
         stdts[1].n2 = 10;
         stdts[1].n3 = 10;
         
@@ -42,22 +42,54 @@ int main(){
         // Student 5
         strcpy(stdts[4].name, "Epitácio");
         stdts[4].registration = 1201105;
-        stdts[4].n1 = 9.2;
+        stdts[4].n1 = 10;
         stdts[4].n2 = 10;
         stdts[4].n3 = 7;
     }
     
 
-    TDLinkedList *list;
-    list = list_create();
+
+    // TDLinkedList *pre, *in, *pos;
+    // pre = list_create(); 
+    // in = list_create(); 
+    // pos = list_create();
+
+    // list_push_front(pre, stdts[0]);
+    // list_push_front(pre, stdts[1]);
+    
+    // list_push_front(pre, stdts[2]);
+    // list_push_front(in, stdts[3]);
+
+    // list_push_front(in, stdts[4]);
+
+    // printf("Pre:\n");
+    // list_print_foward(pre);
+    // printf("In:\n");
+    // list_print_foward(in);
+    // printf("Pos:\n");
+    // list_print_foward(pos);
+
+    // list_concat3(pre, in, pos);
+    // list_print_foward(pre);
+
 
     // for(int i=0; i<5; i++)
     //     list_push_front(list, stdts[i]);
 
+    TDLinkedList *list;
+    list = list_create();
+
     for(int i=0; i<5; i++)
         list_push_back(list, stdts[i]);
-    
-    
+
+
+
+
+    // ex01 prova
+    list_print_foward(list);
+    list_erase_max_nota_n1(list);
+    printf("<< after remove max notes >>\n");
+    list_print_foward(list);
     /*
     // Testing list_print_foward()
     list_print_foward(list);
@@ -111,40 +143,40 @@ int main(){
     */
 
     // Testing the function list_find_mat()
-    struct student stdnt;
-    int response;
-    list_print_foward(list);
-    response = list_find_mat(list, 1201101, &stdnt);
-    if(response == 0){
-        printf("\nStudent found by registration:\n");
-        printf("Name: %s\n",stdnt.name);
-        printf("Registration: %d\n",stdnt.registration);
-    }
-    else if(response == -1)
-        printf("\nInvalid Null Pointer\n");
-    else if(response == -4)
-        printf("\nElement not found\n");
+    // struct student stdnt;
+    // int response;
+    // list_print_foward(list);
+    // response = list_find_mat(list, 1201101, &stdnt);
+    // if(response == 0){
+    //     printf("\nStudent found by registration:\n");
+    //     printf("Name: %s\n",stdnt.name);
+    //     printf("Registration: %d\n",stdnt.registration);
+    // }
+    // else if(response == -1)
+    //     printf("\nInvalid Null Pointer\n");
+    // else if(response == -4)
+    //     printf("\nElement not found\n");
 
-    // Tesging list_front()
-    list_front(list, &stdnt);
-    printf("\nAt list front:\n");
-    printf("Name: %s\n",stdnt.name);
+    // // Tesging list_front()
+    // list_front(list, &stdnt);
+    // printf("\nAt list front:\n");
+    // printf("Name: %s\n",stdnt.name);
 
-    // Tesging list_back()
-    list_back(list, &stdnt);
-    printf("\nAt list back:\n");
-    printf("Name: %s\n",stdnt.name);
+    // // Tesging list_back()
+    // list_back(list, &stdnt);
+    // printf("\nAt list back:\n");
+    // printf("Name: %s\n",stdnt.name);
     
-    // Testing list_get_pos()
-    int pos, nmat = 1201115;
-    response = list_get_pos(list, nmat, &pos);
-    if(response == 0){
-        printf("\nStudent's %d position: %d\n",nmat, pos);
-    }
-    else if(response == -1)
-        printf("\nInvalid Null Pointer!\n");
-    else if(response == -4)
-        printf("\nElement %d not found!\n", nmat);
+    // // Testing list_get_pos()
+    // int pos, nmat = 1201115;
+    // response = list_get_pos(list, nmat, &pos);
+    // if(response == 0){
+    //     printf("\nStudent's %d position: %d\n",nmat, pos);
+    // }
+    // else if(response == -1)
+    //     printf("\nInvalid Null Pointer!\n");
+    // else if(response == -4)
+    //     printf("\nElement %d not found!\n", nmat);
 
 
     return 0;

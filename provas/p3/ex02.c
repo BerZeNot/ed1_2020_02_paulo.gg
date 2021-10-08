@@ -26,5 +26,34 @@ pre <-> in <-> pos
 */
 
 int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
-
+    if(pre == NULL || in == NULL || pos == NULL)
+        return INVALID_NULL_POINTER;
+    if(pre->size == 0 && in->size == 0 && pos->size == 0){
+        return SUCCESS;
+    } else if(pre->size == 0){
+        pre->begin = in->begin;
+        pre->end = in->begin;
+        in->end->next = pos->begin;
+        pos->begin->prev = in->end;
+        free(in);
+        free(pos);
+    } else if(in->size == 0){
+        pre->end->next = pos->begin;
+        pos->begin->prev = pre->end;
+        free(in);
+        free(pos);
+    } else if(pos->size == 0){
+        pre->end->next = in->begin;
+        in->begin->prev = pre->end;
+        free(in);
+        free(pos);
+    } else {
+        pre->end->next = in->begin;
+        in->begin->prev = pre->end;
+        in->end->next = pos->begin;
+        pos->begin->prev = in->end;
+        free(in);
+        free(pos);
+    }
+    return SUCCESS;
 }

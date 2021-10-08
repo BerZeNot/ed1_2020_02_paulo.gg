@@ -355,3 +355,78 @@ int list_print_reverse(TDLinkedList *list){
         return SUCCESS;
     }
 }
+
+
+int list_erase_max_nota_n1(TDLinkedList *li){
+    if(li == NULL)
+        return INVALID_NULL_POINTER;
+    else{
+        if(li->size == 0)
+            return ELEM_NOT_FOUND;
+        else{
+            int maxNote=0;
+            DLNode *aux, *eraseNow;
+            aux = li->begin;
+            while(aux != NULL){
+                if(aux->data.n1 > maxNote)
+                    maxNote = aux->data.n1;
+                aux = aux->next;
+            }
+            aux = li->begin;
+            while(aux != NULL){
+                if(aux->data.n1 == maxNote){
+                    eraseNow = aux;
+                    if(aux->prev == NULL && aux->next == NULL){
+                        li->begin = NULL;
+                        li->end = NULL;
+                    }
+                    else if(aux->prev == NULL){
+                        li->begin = aux->next;
+                        li->begin->prev = NULL;
+                    }
+                    else if(aux->next == NULL){
+                        li->end = aux->prev;
+                        li->end->next = NULL;
+                    }
+                    free(eraseNow);
+                    li->size--;
+                }
+                aux = aux->next;
+            }
+            return SUCCESS;
+        }
+    }
+}
+
+int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
+    if(pre == NULL || in == NULL || pos == NULL)
+        return INVALID_NULL_POINTER;
+    if(pre->size == 0 && in->size == 0 && pos->size == 0){
+        return SUCCESS;
+    } else if(pre->size == 0){
+        pre->begin = in->begin;
+        pre->end = in->begin;
+        in->end->next = pos->begin;
+        pos->begin->prev = in->end;
+        free(in);
+        free(pos);
+    } else if(in->size == 0){
+        pre->end->next = pos->begin;
+        pos->begin->prev = pre->end;
+        free(in);
+        free(pos);
+    } else if(pos->size == 0){
+        pre->end->next = in->begin;
+        in->begin->prev = pre->end;
+        free(in);
+        free(pos);
+    } else {
+        pre->end->next = in->begin;
+        in->begin->prev = pre->end;
+        in->end->next = pos->begin;
+        pos->begin->prev = in->end;
+        free(in);
+        free(pos);
+    }
+    return SUCCESS;
+}

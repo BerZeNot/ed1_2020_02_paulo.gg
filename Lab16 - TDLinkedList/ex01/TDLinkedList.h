@@ -56,3 +56,7 @@ int list_print_reverse(TDLinkedList *list);
 
 // Returns the list size; OK
 int list_size(TDLinkedList *list);
+
+int list_erase_max_nota_n1(TDLinkedList *li);
+
+int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos);
