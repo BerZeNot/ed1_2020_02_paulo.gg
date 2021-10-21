@@ -27,8 +27,15 @@ TStack *stack_create(){
 int stack_free(TStack *st){
     if(st == NULL)
         return INVALID_NULL_POINTER;
-    else
-        return list_free(st->list);
+    else{
+        int result;
+        result = list_free(st->list);
+        if(result == SUCCESS){
+            free(st);
+            return SUCCESS;
+        } else
+            return result;
+    }
 }
 
 int stack_push(TStack *st, struct aluno al){
