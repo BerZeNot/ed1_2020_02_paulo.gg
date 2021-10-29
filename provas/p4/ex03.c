@@ -1,3 +1,4 @@
+/*
 ex03) Mostre como uma pilha pode ser usada para resolver a expressão 
 matemática abaixo. Não confundir números negativos com subtrações.
 
@@ -11,3 +12,14 @@ Exemplo de como mostrar a pilha
 Expressão: 
 
 5 -5 8 - * 3 +
+
+<< Resposta >>
+
+5 <topo
+5 -5 <topo
+5 -5 8 <topo
+5 13 <topo
+65 <topo
+65 3 <topo
+68 <topo
+*/
