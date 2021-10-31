@@ -6,7 +6,7 @@ percorrida ainda, o próximo elemento é a cabeça. Depois, ao chamar a função
 novamente, será devolvido o segundo elemento, e assim sucessivamente.
 (a) mostrar como fica a estrutura do TAD
 << Resposta >>
-
+*/
 struct listCirc_Node{
     struct student *data;
     listCirc_Node *next;
@@ -26,16 +26,17 @@ int listCirc_getNext(ListCirc *lc, struct student *std){
 
     else {
         if(lc->head.next == NULL){
-            std = lc->head.data;
+            std = lc->head.data;// check:<<<erro: falta atualizar o ponteiro senão sempre vai entrar aqui>>>> head->data
             return SUCCESS; // SUCCESS = 0
         } else {
             std = lc->head->next.data;
-            lc->last_head = lc->head;
+            lc->last_head = lc->head;// check:<<<erro: o ponteiro de próximo nó não tem relação com o ponteiro head>>>>
             lc->head = lc->head->next;
             return SUCCESS; // SUCCESS = 0
         }
     }
 }
+/*
 
 (c) Qual a diferença entre o vetor de acesso circular usado na 
 implementação de uma fila estática de uma lista circular?

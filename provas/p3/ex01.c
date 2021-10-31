@@ -42,7 +42,7 @@ int list_erase_max_nota_n1(TDLinkedList *li){
                     else if(aux->next == NULL){
                         li->end = aux->prev;
                         li->end->next = NULL;
-                    }
+                    }// check:<<<erro: ainda falta uma opção quando o elemento está no meio da lista>>>>
                     free(eraseNow);
                     li->size--;
                 }

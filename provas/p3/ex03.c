@@ -34,6 +34,6 @@ int main(){
         printf("%c",c);
         stack_pop(st);
     }
-    printf("\n");
+    printf("\n");// check:<<<erro: free>>>>
     return 0;
 }

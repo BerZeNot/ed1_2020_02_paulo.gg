@@ -33,10 +33,11 @@ int list_concat3(TDLinkedList *pre, TDLinkedList *in, TDLinkedList *pos){
     } else if(pre->size == 0){
         pre->begin = in->begin;
         pre->end = in->begin;
-        in->end->next = pos->begin;
+        in->end->next = pos->begin;// check:<<<erro: cuidado nos testes pois /in/ pode ser vazia e aqui pode ocorrer um erro>>>>
         pos->begin->prev = in->end;
-        free(in);
-        free(pos);
+        free(in);// check:<<<erro: não é para liberar as outras listas, é pra deixar vazia>>>>
+        free(pos);// check:<<<erro: e2.2 faltou modificar o tamanho final das listas>>>>
+
     } else if(in->size == 0){
         pre->end->next = pos->begin;
         pos->begin->prev = pre->end;
